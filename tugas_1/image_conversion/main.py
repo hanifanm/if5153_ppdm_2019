@@ -1,18 +1,27 @@
 import cv2
  
-image = cv2.imread('./maudy.jpg')
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)[1]
-bgr = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
-# hsl = cv2.cvtColor(image, cv2.COLOR_RGB2HSL)
- 
-cv2.imshow('Original image',image)
-cv2.imshow('Gray image', gray)
-cv2.imshow('BW image', binary)
-cv2.imshow('BGR image', bgr)
-cv2.imshow('HSV image', hsv)
-# cv2.imshow('HSL image', hsl)
+# Convert Image
+maudy_ori = cv2.imread('./maudy.jpg')
+maudy_gray = cv2.cvtColor(maudy_ori, cv2.COLOR_BGR2GRAY)
+maudy_binary = cv2.threshold(maudy_gray, 127, 255, cv2.THRESH_BINARY)[1]
+maudy_bgr = cv2.cvtColor(maudy_ori, cv2.COLOR_RGB2BGR)
+maudy_hsv = cv2.cvtColor(maudy_ori, cv2.COLOR_RGB2HSV)
+maudy_hsv_2 = cv2.cvtColor(maudy_ori, cv2.COLOR_BGR2HSV)
+
+# Show Image
+cv2.imshow('Original image',maudy_ori)
+cv2.imshow('Gray image', maudy_gray)
+cv2.imshow('BW image', maudy_binary)
+cv2.imshow('BGR image', maudy_bgr)
+cv2.imshow('HSV image', maudy_hsv)
+cv2.imshow('HSV 2 image', maudy_hsv_2)
+
+# Save Image
+cv2.imwrite('maudy_gray.jpg',maudy_gray)
+cv2.imwrite('maudy_binary.jpg',maudy_binary)
+cv2.imwrite('maudy_bgr.jpg',maudy_bgr)
+cv2.imwrite('maudy_hsv.jpg',maudy_hsv)
+cv2.imwrite('maudy_hsv_2.jpg',maudy_hsv_2)
  
 cv2.waitKey(0)
 cv2.destroyAllWindows()
