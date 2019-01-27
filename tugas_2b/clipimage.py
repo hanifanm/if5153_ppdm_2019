@@ -1,8 +1,9 @@
 import numpy as np
+import cv2
 
 def clip (img, container):
     img = np.array(img)
-    container = np.array(container)
+    container = np.array(cv2.cvtColor(container, cv2.COLOR_BGR2GRAY))
     h_img, w_img, col = np.shape(img)
     h_container, w_container = np.shape(container)
 
