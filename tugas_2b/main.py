@@ -7,6 +7,7 @@ import cv2
 sunflower = cv2.imread('./sunflower.jpg')
 diamond = cv2.imread('./diamond.jpeg')
 eiffel = cv2.imread('./eiffel_mini.jpg')
+itb = cv2.imread('./logoitb.jpg')
 
 # 1
 image1 = sunflower
@@ -18,7 +19,7 @@ cv2.imwrite('PixelSorting.jpg', result1)
 
 # 2
 image2_main = sunflower
-image2_container = diamond
+image2_container = itb
 
 clipped = clip(image2_main, image2_container)
 result2 = np.concatenate((image2_main, image2_container, clipped), axis=1)
